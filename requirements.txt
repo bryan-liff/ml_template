@@ -1,0 +1,11 @@
+numpy
+scipy
+pandas
+scikit-learn
+ipython[notebook]
+matplotlib
+statsmodels
+beautifulsoup4
+networkx
+nltk
+gensim
