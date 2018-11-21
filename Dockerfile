@@ -8,7 +8,8 @@ WORKDIR $APP_PATH
 
 COPY requirements.txt requirements.txt
 RUN apk add --no-cache --virtual .build-deps \
-  build-base postgresql-dev libffi-dev \
+  build-base libffi-dev \
+#  postgresql-dev \
     && pip install -r requirements.txt \
     && find /usr/local \
         \( -type d -a -name test -o -name tests \) \
