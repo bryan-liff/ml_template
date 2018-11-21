@@ -1,10 +1,10 @@
 FROM python:2.7-alpine
 MAINTAINER Bryan Liff <bliff@minerva-group.com>
 
-ENV INSTALL_PATH /bsawf
-RUN mkdir -p $INSTALL_PATH
+ENV APP_PATH /app
+RUN mkdir -p $APP_PATH
 
-WORKDIR $INSTALL_PATH
+WORKDIR $APP_PATH
 
 COPY requirements.txt requirements.txt
 RUN apk add --no-cache --virtual .build-deps \
