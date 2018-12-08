@@ -6,7 +6,7 @@ cython
 scikit-learn
 ipython[notebook]
 matplotlib
-statsmodels==0.8.0
+statsmodels
 beautifulsoup4
 networkx
 nltk

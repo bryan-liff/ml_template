@@ -1,4 +1,4 @@
-FROM python:2.7-alpine
+FROM python:2.7-jessie
 MAINTAINER Bryan Liff <bliff@minerva-group.com>
 
 ENV APP_PATH /app
@@ -7,23 +7,6 @@ RUN mkdir -p $APP_PATH
 WORKDIR $APP_PATH
 
 COPY requirements.txt requirements.txt
-RUN apk add --no-cache --virtual .build-deps \
-  build-base libffi-dev \
-  libpng libpng-dev freetype freetype-dev \
-#  postgresql-dev \
-    && pip install -r requirements.txt \
-    && find /usr/local \
-        \( -type d -a -name test -o -name tests \) \
-        -o \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-        -exec rm -rf '{}' + \
-    && runDeps="$( \
-        scanelf --needed --nobanner --recursive /usr/local \
-                | awk '{ gsub(/,/, "\nso:", $2); print "so:" $2 }' \
-                | sort -u \
-                | xargs -r apk info --installed \
-                | sort -u \
-    )" \
-    && apk add --virtual .rundeps $runDeps \
-    && apk del .build-deps
+RUN pip install -r requirements.txt
 
 COPY . .
