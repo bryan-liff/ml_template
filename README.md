@@ -1,4 +1,4 @@
-# Machine Learning / Data science base Python image
+## Python, Machine learning / Data science Docker image
 
 ### Requirements
 * Docker
