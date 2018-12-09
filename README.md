@@ -1,11 +1,20 @@
-Build image: `docker build -t [IMAGE_NAME] .`
+# Machine Learning / Data science base Python image
 
-Run in ad hoc container: `docker run -it --rm [IMAGE_NAME] bash`
+### Requirements
+* Docker
+* DockerCompose >= 3.0
 
-If you plan on using iPython Notebook, map port 8888:
+### To use
 
-`docker run -it --rm -p 8888:8888 ml_base bash`
+Build image: `docker build -t ml_base .`
 
-then in the container:
+To run an ad hoc (non-persisted) container: `docker run -it --rm ml_base bash`
 
-`/app# jupyter notebook --ip 0.0.0.0 --no-browser --allow-root`
+To run with local persistence: `docker-compose run ml_base bash`
+
+To run with local persistence and iPython Notebook service:
+`docker-compose up`
+
+(Running on localhost:8888, see console output for url token)
+
+All `docker-compose` persisted volumes are mounted in `./local`
