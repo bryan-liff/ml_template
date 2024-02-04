@@ -1,4 +1,4 @@
-FROM python:2.7-jessie
+FROM python:3.12
 MAINTAINER Bryan Liff <bliff@minerva-group.com>
 
 ENV APP_PATH /app
